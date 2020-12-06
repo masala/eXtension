@@ -1,8 +1,8 @@
 {
-  "name": "@masala/date",
+  "name": "@masala/x",
   "description": "Masala eXtensions: nice snippets for the Masala Parser users",
   "license": "GPL 3.0",
-  "version": "0.0.6",
+  "version": "0.0.1",
   "keywords": [
     "date",
     "masala",
