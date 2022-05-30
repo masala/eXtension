@@ -2,7 +2,7 @@ import { F, C, N, SingleParser } from '@masala/parser'
 import { take } from './take'
 import { tryAll } from './try-all'
 
-export function json() {
+export function json(): SingleParser<any> {
   const NULL = C.string('null')
   const OPEN = C.char('{')
   const CLOSE = C.char('}')
@@ -40,5 +40,5 @@ export function json() {
     return tryAll([NUMBER, STRING, NULL.returns(null), OBJECT])
   }
 
-  return expr()
+  return expr() as SingleParser<any>
 }
