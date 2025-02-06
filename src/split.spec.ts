@@ -2,8 +2,8 @@
 import { describe, it, expect } from 'vitest'
 import { Streams } from '@masala/parser'
 import { C } from '@masala/parser'
-import { split, segments, segment } from './split'
-import { X } from './x' // <-- Adjust to your actual file
+import { split, segments, segment } from './split.js'
+import { X } from './x.js' // <-- Adjust to your actual file
 // e.g., `import { path, segments, segment } from '@/logic/myParsers';`
 
 const delim = C.char('/')
@@ -106,6 +106,15 @@ describe('split parser', () => {
     }
   })
 
+  it('should parse "a/b/c" ', () => {
+    const stream = Streams.ofString('a/b/c')
+    const result = split(delim).parse(stream)
+    expect(result.isAccepted()).toBe(true)
+    if (result.isAccepted()) {
+      expect(result.value).toEqual(['a', 'b', 'c'])
+    }
+  })
+
   it('should parse an empty string as an empty array', () => {
     const stream = Streams.ofString('')
     const result = split(delim).parse(stream)
@@ -127,6 +136,15 @@ describe('integrated split parser', () => {
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       expect(result.value).toEqual(['cat'])
+    }
+  })
+
+  it('should parse "a/b/c" ', () => {
+    const stream = Streams.ofString('a/b/c')
+    const result = X.split(delim).parse(stream)
+    expect(result.isAccepted()).toBe(true)
+    if (result.isAccepted()) {
+      expect(result.value).toEqual(['a', 'b', 'c'])
     }
   })
 })

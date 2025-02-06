@@ -1,4 +1,4 @@
-import { X } from '../src/x'
+import { X } from '../src/x.js'
 import { C } from '@masala/parser'
 import { test, expect } from 'vitest'
 

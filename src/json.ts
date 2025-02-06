@@ -1,6 +1,6 @@
 import { F, C, N, SingleParser } from '@masala/parser'
-import { take } from './take'
-import { tryAll } from './try-all'
+import { take } from './take.js'
+import { tryAll } from './try-all.js'
 
 export function json(): SingleParser<any> {
   const NULL = C.string('null')

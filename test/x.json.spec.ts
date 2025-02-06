@@ -1,4 +1,4 @@
-import { X } from '../src/x'
+import { X } from '../src/x.js'
 import { test, expect } from 'vitest'
 
 test('null', () => {

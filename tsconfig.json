@@ -6,10 +6,10 @@
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
+    "outDir": "./build",
     "sourceMap": true,
-    "declaration": true,
-    "declarationDir": "dist/typescript",
+    /*"declaration": true,
+    "declarationDir": "build/typescript",*/
     "skipLibCheck": true
   },
   "include": ["src", "test"],

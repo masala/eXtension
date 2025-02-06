@@ -2,8 +2,8 @@
   "name": "@masala/x",
   "type": "module",
   "description": "Masala eXtensions: nice snippets for the Masala Parser users",
-  "license": "GPL 3.0",
-  "version": "0.1.6",
+  "license": "GPL-3.0-or-later",
+  "version": "0.1.7",
   "keywords": [
     "date",
     "masala",
@@ -35,9 +35,9 @@
       "url": "https://github.com/masala/date/blob/master/LICENSE"
     }
   ],
-  "main": "dist/src/x.js",
+  "main": "build/src/x.js",
   "files": [
-    "dist/**/*",
+    "build/**/*",
     "masala-x.d.ts"
   ],
   "types": "./masala-x.d.ts",
@@ -47,7 +47,7 @@
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
-    "test": "vitest run",
+    "test": "vitest run --dir src",
     "testone": "jest --testNamePattern=^combineTest$",
     "prepublishOnly": "npm test"
   },

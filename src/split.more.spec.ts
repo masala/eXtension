@@ -1,7 +1,7 @@
 // splitParser.test.ts
 import { describe, it, expect } from 'vitest'
 import { Streams, C } from '@masala/parser'
-import { split } from './split' // <-- Adjust import to your code
+import { split } from './split.js' // <-- Adjust import to your code
 
 // Complex delimiter: "/STOP" or "/STOP/"
 const delim = C.string('/STOP')

@@ -1,5 +1,8 @@
 import { IParser, SingleParser, TupleParser } from '@masala/parser'
-import { TakeItem } from './src/take'
+
+type Modifier = '?' | '*' | '+'
+type TakeItemArray = [IParser<any>, Modifier] | [string, Modifier]
+export type TakeItem = string | IParser<any> | TakeItemArray
 
 export declare function take(
   items: TakeItem[],
