@@ -1,5 +1,6 @@
 {
   "name": "@masala/x",
+  "type": "module",
   "description": "Masala eXtensions: nice snippets for the Masala Parser users",
   "license": "GPL 3.0",
   "version": "0.1.3",
@@ -35,17 +36,20 @@
     }
   ],
   "main": "dist/src/x.js",
-  "files": ["dist/**/*", "masala-x.d.ts"],
+  "files": [
+    "dist/**/*",
+    "masala-x.d.ts"
+  ],
   "types": "./masala-x.d.ts",
   "engines": {
     "node": ">= 6.11.4"
   },
   "scripts": {
     "build": "tsc",
-    "prepare" : "npm run build",
-    "test": "vitest",
-    "testone":"jest --testNamePattern=^combineTest$",
-    "prepublishOnly" : "npm test"
+    "prepare": "npm run build",
+    "test": "vitest run",
+    "testone": "jest --testNamePattern=^combineTest$",
+    "prepublishOnly": "npm test"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.1",
