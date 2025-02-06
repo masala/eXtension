@@ -7,12 +7,14 @@ SEGMENT     -> [^/]+
 DELIM       -> '/'+
  */
 
-export const segment = (delim: VoidParser) =>
+type DroppedParser = Parser<any> | VoidParser
+
+export const segment = (delim: DroppedParser) =>
   F.not(delim)
     .rep()
     .map(c => c.join(''))
 
-export const segments = (delim: VoidParser) =>
+export const segments = (delim: DroppedParser) =>
   segment(delim)
     .then(
       delim
@@ -22,7 +24,7 @@ export const segments = (delim: VoidParser) =>
     )
     .map(t => t.array() as string[])
 
-export const split = (delim: VoidParser) =>
+export const split = (delim: DroppedParser) =>
   delim
     .optrep()
     .drop()
