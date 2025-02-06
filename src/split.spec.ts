@@ -2,7 +2,8 @@
 import { describe, it, expect } from 'vitest'
 import { Streams } from '@masala/parser'
 import { C } from '@masala/parser'
-import { path, segments, segment } from './split' // <-- Adjust to your actual file
+import { split, segments, segment } from './split'
+import { X } from './x' // <-- Adjust to your actual file
 // e.g., `import { path, segments, segment } from '@/logic/myParsers';`
 
 const delim = C.char('/')
@@ -67,10 +68,10 @@ describe('segments parser', () => {
   })
 })
 
-describe('path parser', () => {
+describe('split parser', () => {
   it('should parse a path with leading, trailing, and repeated slashes', () => {
     const stream = Streams.ofString('//cat///block/p/post/')
-    const result = path(delim).parse(stream)
+    const result = split(delim).parse(stream)
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       // [cat, block, p, post]
@@ -80,7 +81,7 @@ describe('path parser', () => {
 
   it('should parse an empty path of only slashes as an empty array', () => {
     const stream = Streams.ofString('///')
-    const result = path(delim).parse(stream)
+    const result = split(delim).parse(stream)
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       expect(result.value).toEqual([])
@@ -89,7 +90,7 @@ describe('path parser', () => {
 
   it('should parse a single segment path "cat"', () => {
     const stream = Streams.ofString('cat')
-    const result = path(delim).parse(stream)
+    const result = split(delim).parse(stream)
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       expect(result.value).toEqual(['cat'])
@@ -98,7 +99,7 @@ describe('path parser', () => {
 
   it('should parse "/cat/" as ["cat"]', () => {
     const stream = Streams.ofString('/cat/')
-    const result = path(delim).parse(stream)
+    const result = split(delim).parse(stream)
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       expect(result.value).toEqual(['cat'])
@@ -107,13 +108,25 @@ describe('path parser', () => {
 
   it('should parse an empty string as an empty array', () => {
     const stream = Streams.ofString('')
-    const result = path(delim).parse(stream)
+    const result = split(delim).parse(stream)
     // Because `segments(delim).single()` expects at least one segment,
     // you may find it fails or see how your grammar is structured.
     // The grammar suggests SEGMENTS? is optional, so let's see:
     expect(result.isAccepted()).toBe(true)
     if (result.isAccepted()) {
       expect(result.value).toEqual([])
+    }
+  })
+})
+
+describe('integrated split parser', () => {
+  it('should work with a cat', () => {
+    const stream = Streams.ofString('/cat/')
+    const result = X.split(delim).parse(stream)
+
+    expect(result.isAccepted()).toBe(true)
+    if (result.isAccepted()) {
+      expect(result.value).toEqual(['cat'])
     }
   })
 })

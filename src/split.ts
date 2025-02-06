@@ -22,7 +22,7 @@ export const segments = (delim: VoidParser) =>
     )
     .map(t => t.array() as string[])
 
-export const path = (delim: VoidParser) =>
+export const split = (delim: VoidParser) =>
   delim
     .optrep()
     .drop()
