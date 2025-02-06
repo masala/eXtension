@@ -3,7 +3,7 @@
   "type": "module",
   "description": "Masala eXtensions: nice snippets for the Masala Parser users",
   "license": "GPL 3.0",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "keywords": [
     "date",
     "masala",

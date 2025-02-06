@@ -24,4 +24,5 @@ export declare const X: {
   tryAll: typeof tryAll
   thenAll: typeof thenAll
   json: typeof json
+  split: (delim: IParser<any>) => SingleParser<string[]>
 }

@@ -24,7 +24,10 @@ export const segments = (delim: DroppedParser) =>
     )
     .map(t => t.array() as string[])
 
-export const split = (delim: DroppedParser) =>
+// TODO: string[] could be generalized to any T[]
+export const split: (delim: DroppedParser) => SingleParser<string[]> = (
+  delim: DroppedParser
+) =>
   delim
     .optrep()
     .drop()
