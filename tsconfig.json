@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2022",
     "module": "commonjs",
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -9,7 +9,5 @@
     "declaration": true,
     "declarationDir": "dist/typescript"
   },
-  "include": [
-    "src", "test"
-  ]
+  "include": ["src", "test"]
 }

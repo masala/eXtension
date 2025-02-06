@@ -1,4 +1,5 @@
 import { X } from '../src/x'
+import { test, expect } from 'vitest'
 
 test('null', () => {
   let content = 'null'
